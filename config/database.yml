@@ -48,9 +48,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: heroku_7aac555c6bd8f15
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  database: dfcf78sjhe7onn
   port: 5432
-  username: b1b773d411138b
-  host: us-cdbr-iron-east-04.cleardb.net
-  password: 6c5ea344
+  username: cvcmrflzfxbijz
+  host: ec2-107-22-244-62.compute-1.amazonaws.com
+  password: 58205687498e9dcc9c41a253e9b425b6ceefd9ce3a19bfb667015c927bd7c913
