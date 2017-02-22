@@ -1,1 +1,7 @@
 Hello World!
+
+<% if user_signed_in? %>
+  <p><%= "signed_in"%></p>
+<% else %>
+  not signed_in
+<% end %>
