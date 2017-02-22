@@ -1,13 +1,20 @@
-友達一覧
-
-<% @users.each do |user| %>
-  <div>
-    <div>
-      <p><%= user[:name] %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <% @users.each do |user| %>
+        <div>
+          <div>
+            <p><%= user[:name] %></p>
+          </div>
+          <div>
+            <%= button_to "友だちに追加", {:action => "add", :id => user[:id]}, {:remote => true} %>
+          </div>
+        </div>
+      <%end%>
     </div>
-    <div>
-      <%= button_to "友だちに追加", {:action => "add", :id => user[:id].to_s}, {:remote => true} %>
+    <div class="col-md-6">
+      検索
     </div>
   </div>
-<%end%>
+</div>
 
