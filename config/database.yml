@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
-  database: job_assignment_production
-  username: job_assignment
-  password: <%= ENV['JOB_ASSIGNMENT_DATABASE_PASSWORD'] %>
+  database: heroku_7aac555c6bd8f15
+  port: 5432
+  username: b1b773d411138b
+  host: us-cdbr-iron-east-04.cleardb.net
+  password: 6c5ea344
