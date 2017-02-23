@@ -1,0 +1,5 @@
+<p>MyLINEへ登録ありがとうございます！ <%= @email %>!</p>
+
+<p>以下のリンクをクリックすると、ユーザー登録が完了します。</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>

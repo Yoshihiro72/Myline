@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" id="friend-list">
+      <%= render :partial => "friends", locals: {friends: @friends} %>
+    </div>
+    <div class="col-md-6">
+      <% @users.each do |user| %>
+        <div class="friend">
+          <div>
+            <p><%= user[:name] %></p>
+          </div>
+          <div>
+            <%= button_to "友だち追加", {:action => "modify", :id => user[:id], :mode => "add"}, {:remote => true} %>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+

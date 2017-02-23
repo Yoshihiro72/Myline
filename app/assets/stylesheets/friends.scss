@@ -1,0 +1,12 @@
+// Place all the styles related to the friends controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.col-md-6.friends{
+    border: 2px solid #ffffff;
+}
+
+div.friend {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

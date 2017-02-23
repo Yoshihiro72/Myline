@@ -1,0 +1,13 @@
+<% friends.each do |user| %>
+  <div class="friend">
+    <div>
+      <p><%= user[:name] %></p>
+    </div>
+    <div>
+      <%= button_to "トーク" %>
+    </div>
+    <div>
+      <%= button_to "友だち解除", {:action => "modify", :id => user[:id], :mode => "remove"}, {:remote => true} %>
+    </div>
+  </div>
+<%end%>
