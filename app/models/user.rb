@@ -31,4 +31,15 @@ class User < ApplicationRecord
     friend_ids
   end
 
+  # ユーザーのfriendsを取得し、idの文字列からインスタンスへ変換
+  def room_id_to_instance(user, ids = nil)
+    user[:rooms] = "[]" if user[:rooms] == nil
+    room_ids = ids.nil? ? JSON.parse(user.rooms) : ids
+    rooms = []
+    room_ids.each do |id|
+      rooms.push(Room.find_by(id: id.to_i))
+    end
+    rooms
+  end
+
 end

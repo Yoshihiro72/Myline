@@ -4,7 +4,7 @@
       <p><%= user[:name] %></p>
     </div>
     <div>
-      <%= button_to "トーク" %>
+      <%= button_to "トーク", {:action => "check_room", :id => user[:id]} %>
     </div>
     <div>
       <%= button_to "友だち解除", {:action => "modify", :id => user[:id], :mode => "remove"}, {:remote => true} %>
