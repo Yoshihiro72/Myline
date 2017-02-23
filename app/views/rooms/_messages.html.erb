@@ -1,0 +1,7 @@
+<% logs.each do |log| %>
+  <div class="message-box">
+    <p><%= User.find(log[:sender_id])[:name]%></p>
+    <p><%= log.text %></p>
+    <p><%= log.created_at %></p>
+  </div>
+<% end %>

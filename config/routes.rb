@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'friends/modify' => 'friends#modify'
   post 'friends/check_room' => 'friends#check_room'
 
+  get 'rooms/index' => 'rooms#index'
   get 'rooms/show/:id' => 'rooms#show'
   post 'rooms/send_message' => 'rooms#send_message'
 

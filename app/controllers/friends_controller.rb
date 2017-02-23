@@ -15,23 +15,28 @@ class FriendsController < ApplicationController
   # TODO: リファクタリング、モデルへの処理の移行
   def check_room
     user = User.find_by(id: current_user.id)
-    talking_with_ids = JSON.parse(user.talking_with)
-    if talking_with_ids.include?(params[:id])
+    talking_with_hashes = JSON.parse(user.talking_with)
+    pair_of_user_and_room = nil
+    talking_with_hashes.each do |hash|
+      pair_of_user_and_room = hash if hash.keys[0] == params[:id]
+    end
+    unless pair_of_user_and_room.blank?
       redirect_to :action => "show",
-        :controller => "rooms", :id => params[:id]
+        :controller => "rooms", :id => pair_of_user_and_room.values[0]
     else
       members = [current_user.id, params[:id]]
       new_room = Room.create(
         :members => JSON.generate(members),
         :member_count => 2
       )
-      user.talking_with = members
+      talking_with_hashes.push({params[:id] => new_room.id})
+      user.talking_with = JSON.generate(talking_with_hashes)
       rooms = JSON.parse(user.rooms)
       rooms.push(new_room.id)
       user.rooms = JSON.generate(rooms)
       user.save!
       redirect_to :action => "show",
-        :controller => "rooms", :id => params[:id]
+        :controller => "rooms", :id => new_room.id
     end
   end
 
