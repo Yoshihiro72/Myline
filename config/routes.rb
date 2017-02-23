@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'friends/' => 'friends#index'
-  post 'friends/add' => 'friends#add'
+  post 'friends/modify' => 'friends#modify'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
