@@ -12,6 +12,7 @@ class FriendsController < ApplicationController
   end
 
   # 既にルームが存在すれば移行、無ければ新規作成して移行
+  # TODO: リファクタリング、モデルへの処理の移行
   def check_room
     user = User.find_by(id: current_user.id)
     talking_with_ids = JSON.parse(user.talking_with)
@@ -25,6 +26,9 @@ class FriendsController < ApplicationController
         :member_count => 2
       )
       user.talking_with = members
+      rooms = JSON.parse(user.rooms)
+      rooms.push(new_room.id)
+      user.rooms = JSON.generate(rooms)
       user.save!
       redirect_to :action => "show",
         :controller => "rooms", :id => params[:id]
@@ -33,6 +37,8 @@ class FriendsController < ApplicationController
 
   private
 
+  # ユーザー名、ユーザーIDの二つのモードで、検索文字列に
+  # マッチしたユーザーのインスタンスを返す
   def search_users(keyword, mode)
     friends = JSON.parse(@user.friends)
   end

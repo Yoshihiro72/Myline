@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'friends/check_room' => 'friends#check_room'
 
   get 'rooms/show/:id' => 'rooms#show'
+  post 'rooms/send_message' => 'rooms#send_message'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
