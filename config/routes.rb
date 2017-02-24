@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'rooms/index' => 'rooms#index'
   get 'rooms/show/:id' => 'rooms#show'
+  get 'rooms/update' => 'rooms#update'
   post 'rooms/send_message' => 'rooms#send_message'
 
   # The priority is based upon order of creation: first created -> highest priority.
